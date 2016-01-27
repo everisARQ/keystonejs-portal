@@ -6,5 +6,5 @@ To install
 To run
 - node keystone.js
 
-To run with grunt
+To run with gulp
 - gulp
