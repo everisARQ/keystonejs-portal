@@ -68,8 +68,8 @@ block content
 		
 		if data.categories.length
 			.col-sm-4.col-md-3
-				h2 Categories
-				.list-group(style='margin-top: 70px;')
-					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
+				h4 Categories
+				.collection
+					a(href='/blog', class=!data.category ? 'active' : false).collection-item All Categories
 					each cat in data.categories
-						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).collection-item= cat.name

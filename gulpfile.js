@@ -6,7 +6,6 @@ var watch = require('gulp-watch');
 var shell = require('gulp-shell');
 var open = require('gulp-open');
 var sass = require('gulp-sass');
-var wait = require('gulp-wait')
 var runSequence = require('run-sequence');
 
 var paths = {

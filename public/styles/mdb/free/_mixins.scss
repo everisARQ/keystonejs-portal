@@ -1,0 +1,68 @@
+/*********************
+  Mixins
+**********************/
+
+@mixin box-shadow-2($args1, $args2) {
+    -webkit-box-shadow: $args1, $args2;
+    -moz-box-shadow: $args1, $args2;
+    box-shadow: $args1, $args2;
+}
+
+@mixin card-variant($background, $color, $border) {
+    background-color: $background;
+    color: $color;
+    .card-footer,
+    .card-header {
+        border-color: $border;
+    }
+    a {
+        color: $color;
+    }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin button-variant($color) {
+    background-color: $color;
+}
+
+@mixin alert-variant($color) {
+    background-color: $color;
+}
+
+@mixin progress-bar-variant($color) {
+    background-color: $color;
+}
+
+@mixin navbar-variant($color) {
+    background-color: $color;
+}
+
+@mixin icon-variant($color) {
+    color: $color;
+}
+
+@mixin background-color($color) {
+    background-color: $color;
+}
+
+@mixin border-radius($args) {
+    -webkit-border-radius: $args;
+    -moz-border-radius: $args;
+    -ms-border-radius: $args;
+    -o-border-radius: $args;
+    border-radius: $args;
+}
+ 
+@mixin oc-auto-height ($oc-height) {
+    -webkit-transition: $oc-height;
+    -moz-transition: $oc-height;
+    -ms-transition: $oc-height;
+    -o-transition: $oc-height;
+    transition: $oc-height;
+}

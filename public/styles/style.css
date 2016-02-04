@@ -1,0 +1,55 @@
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #666666;
+}
+
+.jumbotron p {
+    color: #000;
+}
+
+.fb-bg {
+background-color: #3B5998;
+}
+.tw-bg {
+background-color: #55ACEE;
+}
+.gplus-bg {
+background-color: #DD4B39;
+}
+.github-bg {
+	background-color: #000000
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	padding:10px;
+}
+#body {
+	padding-bottom:0;
+}
+#footer {
+	width:100%;
+	position:relative;
+	bottom:0;
+}
+
+footer.page-footer a {
+line-height: 25px;
+}
+
+footer.page-footer a {
+color: #fff;
+font-size: 15px;
+}
