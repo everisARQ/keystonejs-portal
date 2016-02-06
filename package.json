@@ -4,7 +4,7 @@
   "private": true,
   "description": "An ARQ initiative.",
   "dependencies": {
-    "keystone":"https://github.com/keystonejs/keystone.git#master",
+    "keystone":"0.3.15",
     "async": "^1.5.0",
     "underscore": "^1.8.3",
     "node-sass": "^3.3.2",
