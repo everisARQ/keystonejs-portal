@@ -31,12 +31,12 @@ gulp.task('lint', 'Lints all server side', function(){
 });
 
 // gulp watcher for lint
-gulp.task('watch:lint', function () {
+gulp.task('watch:lint', 'Watch lint.', function () {
 	gulp.watch(paths.src, ['lint']);
 });
 
 
-gulp.task('watch:sass', function () {
+gulp.task('watch:sass', 'Watch sass.', function () {
 	gulp.watch(paths.style.all, ['sass']);
 });
 
@@ -46,7 +46,9 @@ gulp.task('sass', 'Compile sass.', function(){
 		.pipe(gulp.dest(paths.style.output));
 });
 
-gulp.task('runKeystone', 'Keystone instance up.', shell.task('node keystone.js'));
+gulp.task('start', 'Run keystonejs-portal.', shell.task('node keystone.js'));
+
+gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
 
 gulp.task('openBrowser', 'Open browser with default URL to access.', function(){
 	var config = { app: browser, uri: 'http://localhost:3000'};
@@ -60,6 +62,4 @@ gulp.task('watch', [
   'watch:lint'
 ]);
 
-gulp.task('default', function(cb){
-	runSequence('watch', 'runKeystone', cb);
-});
+gulp.task('default', ['watch', 'start']);
