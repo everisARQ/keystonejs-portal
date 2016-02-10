@@ -1,0 +1,259 @@
+/*********************
+  Buttons
+**********************/
+
+// Transparen flat button
+.btn-flat {
+    background-color: transparent;
+    position: relative;
+    padding: 8px 30px;
+    border: none;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none !important;
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+//General button styles
+.btn {
+    line-height: $button-line-height;
+    position: relative;
+    padding: 5px 22px;
+    border: 0;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none !important;
+    @extend .z-depth-1;
+    @include transition(.2s ease-out);
+    &:hover {
+        @extend .z-depth-1-half;
+    }
+}
+
+// Shared icon styles
+.btn,
+.btn-flat {
+    i {
+        font-size: $button-font-size-shared;
+        line-height: inherit;
+    }
+}
+
+.open > .dropdown-toggle.btn {
+    //.variations(#{""}, background-color, $btn-default);
+}
+
+// Floating button
+.btn-floating {
+    display: inline-block;
+    color: $button-color-raised;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: $button-floating-size;
+    height: $button-floating-size;
+    line-height: $button-floating-size;
+    padding: 0;
+    background-color: $button-color;
+    border-radius: 50%;
+    @extend .z-depth-1;
+    transition: .3s;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 10px;
+    i {
+        width: inherit;
+        display: inline-block;
+        text-align: center;
+        color: $button-color-raised;
+        font-size: $button-large-icon-font-size;
+        line-height: $button-floating-size;
+    }
+    &:hover {
+        @extend .z-depth-1-half;
+    }
+    &:before {
+        border-radius: 0;
+    }
+    &.btn-large {
+        width: $button-floating-size * 1.5;
+        height: $button-floating-size * 1.5;
+        i {
+            line-height: $button-floating-size * 1.5;
+        }
+    }
+}
+
+// button fix
+button.btn-floating {
+    border: none;
+}
+
+.btn .badge {
+margin-left: 7px;
+    
+}
+
+// Alert buttons
+// --------------------------------------------------
+.btn-default {
+    color: #fff;
+    @include button-variant($btn-default);
+    &:hover,
+    &:focus {
+        background-color: lighten( $default-color, 5%)!important;
+        color: #fff!important;
+    }
+}
+
+.btn-primary {
+    @include button-variant($primary);
+    &:hover,
+    &:focus {
+        background-color: lighten( $primary, 5%)!important;
+        color: #fff;
+    }
+}
+
+.btn-success {
+    @include button-variant($success);
+    &:hover,
+    &:focus {
+        background-color: lighten( $success, 5%)!important;
+        color: #fff;
+    }
+}
+
+.btn-info {
+    @include button-variant($info);
+    &:hover,
+    &:focus {
+        background-color: lighten( $info, 5%)!important;
+        color: #fff;
+    }
+}
+
+.btn-warning {
+    @include button-variant($warning);
+    &:hover,
+    &:focus {
+        background-color: lighten( $warning, 5%)!important;
+        color: #fff;
+    }
+}
+
+.btn-danger {
+    @include button-variant($danger);
+    &:hover,
+    &:focus {
+        background-color: lighten( $danger, 5%)!important;
+        color: #fff;
+    }
+}
+
+.btn-link {
+    background-color: transparent;
+    color: #000;
+    &:hover {
+        background-color: transparent;
+    }
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+// Button Sizes
+// --------------------------------------------------
+.btn-xlg {
+    // line-height: ensure even-numbered height of button next to large input
+    @include button-size($padding-xlarge-vertical, $padding-xlarge-horizontal, $font-size-xlarge, $line-height-large);
+}
+
+.btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large);
+}
+
+.btn-sm {
+    // line-height: ensure proper height of button next to small input
+    @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small);
+}
+
+.btn-xs {
+    @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small);
+}
+
+// Material shades
+.btn-material-red {
+    @include button-variant($red)
+}
+
+.btn-material-pink {
+    @include button-variant($pink);
+}
+
+.btn-material-purple {
+    @include button-variant($purple);
+}
+
+.btn-material-deeppurple {
+    @include button-variant($deeppurple);
+}
+
+.btn-material-indigo {
+    @include button-variant($indigo);
+}
+
+.btn-material-lightblue {
+    @include button-variant($lightblue);
+}
+
+.btn-material-cyan {
+    @include button-variant($cyan);
+}
+
+.btn-material-teal {
+    @include button-variant($teal);
+}
+
+.btn-material-lightgreen {
+    @include button-variant($lightgreen);
+}
+
+.btn-material-lime {
+    @include button-variant($lime);
+}
+
+.btn-material-lightyellow {
+    @include button-variant($lightyellow);
+}
+
+.btn-material-orange {
+    @include button-variant($orange);
+}
+
+.btn-material-deeporange {
+    @include button-variant($deeporange);
+}
+
+.btn-material-grey {
+    @include button-variant($grey);
+}
+
+.btn-material-bluegrey {
+    @include button-variant($bluegrey);
+}
+
+.btn-material-brown {
+    @include button-variant($brown);
+}
+
+.btn-material-lightgrey {
+    @include button-variant($lightgrey);
+}

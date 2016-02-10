@@ -21,3 +21,23 @@ block content
 		hr
 		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
 			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+		
+	.container
+		.row
+			.col-lg-12
+			h3 Communities
+		.row
+			if data.communities.length
+				each comms, index in data.communities
+					.col-md-4
+						.card.hoverable
+							.card-image
+								img(src='images/' + comms.logosrc)
+								span.card-title= comms.name
+							.card-content
+								p= comms.description
+							.card-action
+								a(href= comms.link)
+									button.btn.btn-info.waves-effect.waves-light(type='button') Read more
+			else
+				h2.text-muted There are no communities yet.
