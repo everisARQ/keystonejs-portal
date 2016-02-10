@@ -1,0 +1,221 @@
+/*********************
+  General classes
+**********************/
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+// Badges
+span.badge-md {
+    min-width: 3rem;
+    padding: 0 6px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: inherit;
+    color: color('grey', 'darken-1');
+    position: absolute;
+    right: 15px;
+    @include box-sizing(border-box);
+    &.new {
+        font-weight: 300;
+        font-size: 0.8rem;
+        color: #fff;
+        background-color: $badge-bg-color;
+        border-radius: 2px;
+    }
+    &.new:after {
+        content: " new";
+    }
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    // Gets rid of tap active state
+    -webkit-tap-highlight-color: transparent;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+ 
+ul {
+    padding: 0;
+    list-style-type: none;
+    li {
+        list-style-type: none;
+    }
+}
+
+// Icon Styles
+i {
+    line-height: inherit;
+    &.left {
+        float: left;
+        margin-right: 10px;
+    }
+    &.right {
+        float: right;
+        margin-left: 10px;
+    }
+    &.tiny {
+        font-size: 1rem;
+    }
+    &.small {
+        font-size: 2rem;
+    }
+    &.medium {
+        font-size: 4rem;
+    }
+    &.large {
+        font-size: 6rem;
+    }
+}
+
+// Collections
+.collection {
+    margin: $element-top-margin 0 $element-bottom-margin 0;
+    border: 1px solid $collection-border-color;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    .collection-item {
+        background-color: $collection-bg-color;
+        line-height: 1.5rem;
+        padding: 10px 20px;
+        margin: 0;
+        border-bottom: 1px solid $collection-border-color;
+        // Avatar Collection
+        &.avatar {
+            min-height: 84px;
+            padding-left: 72px;
+            position: relative;
+            .circle {
+                position: absolute;
+                width: 42px;
+                height: 42px;
+                overflow: hidden;
+                left: 15px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            i.circle {
+                font-size: 18px;
+                line-height: 42px;
+                color: #fff;
+                background-color: #999;
+                text-align: center;
+            }
+            .title {
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+            }
+            .secondary-content {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+            }
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+        &.active {
+            background-color: $collection-active-bg-color;
+            color: $collection-active-color;
+        }
+    }
+    a.collection-item {
+        display: block;
+        @include transition(.25s);
+        color: $primary-color;
+        &:not(.active) {
+            &:hover {
+                background-color: $collection-hover-bg-color;
+            }
+        }
+    }
+    &.with-header {
+        .collection-header {
+            background-color: $collection-bg-color;
+            border-bottom: 1px solid $collection-border-color;
+            padding: 10px 20px;
+        }
+        .collection-item {
+            padding-left: 30px;
+        }
+        .collection-item.avatar {
+            padding-left: 72px;
+        }
+    }
+}
+
+// Made less specific to allow easier overriding
+.secondary-content {
+    float: right;
+    color: $primary-color;
+}
+
+// Footer 
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    .footer-copyright {
+        overflow: hidden;
+        height: 50px;
+        line-height: 50px;
+        color: rgba(255, 255, 255, .8);
+        background-color: rgba(51, 51, 51, .08);
+        ;
+        @extend .light;
+    }
+}
+
+// Sections
+.section-white {
+    background-color: #fff;
+    color: #666666;
+    text-align: center;
+    padding: 2.8em 0;
+    h3 {
+        margin-bottom: 1.1em;
+        margin-top: 1.1em;
+    }
+}
+
+.section-dark {
+    background-color: $elegant-color-dark;
+    color: #fff;
+    text-align: center; 
+    padding: 2.8em 0;
+    h3 {
+        margin-bottom: 1.1em;
+        margin-top: 1.1em;
+    }
+    
+} 
+
+.section-colored {
+    color: #fff;
+    text-align: center; 
+    padding: 2.8em 0;
+    h3 {
+        margin-bottom: 1.1em;
+        margin-top: 1.1em;
+    }
+    
+} 
+
+// Modal  
+.modal-content { 
+    border-radius: 2px;
+}
+
+// Dividers 
+.divider-short {
+    max-width: 50px;
+    border-color: #CC0000;
+    border-width: 3px;
+}

@@ -1,10 +1,13 @@
 # keystonejs-portal
 
-To install
-- npm install
+## PRE-REQUISITES
+- mongodb
 
-To run
-- node keystone.js
+## INSTALL
+1. npm install
+2. rename .env_test to .env
 
-To run with gulp
-- gulp
+## RUN
+To run view _gulp help_
+
+**RECOMENDATION**: use node 4.2.6 version.
