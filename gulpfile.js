@@ -6,17 +6,18 @@ var watch = require('gulp-watch');
 var shell = require('gulp-shell');
 var open = require('gulp-open');
 var sass = require('gulp-sass');
+var jasmine = require('gulp-jasmine');
 var runSequence = require('run-sequence');
 
 var paths = {
-	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
-
-,
+	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
 	'style': {
 		all: './public/styles/**/*.scss',
 		output: './public/styles/'
+	},
+	'test': {
+		'routes': 'test/routes/**/*[sS]pec.js'
 	}
-
 };
 
 var browser = os.platform() === 'linux' ? 'google-chrome' : (
@@ -49,6 +50,16 @@ gulp.task('sass', 'Compile sass.', function(){
 gulp.task('start', 'Run keystonejs-portal.', shell.task('node keystone.js'));
 
 gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
+
+gulp.task('test', 'Run all project tests', ['test:routes']);
+
+gulp.task('test:routes', 'Runs routes tests', function () {
+	return gulp.src(paths.test.routes)
+		.pipe(jasmine({
+			timeout: 15000
+		}));
+});
+
 
 gulp.task('openBrowser', 'Open browser with default URL to access.', function(){
 	var config = { app: browser, uri: 'http://localhost:3000'};
