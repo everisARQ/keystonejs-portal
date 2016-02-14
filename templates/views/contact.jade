@@ -12,13 +12,16 @@ block content
 			.row: .col-sm-8.col-md-6
 				form(method='post')
 					input(type='hidden', name='action', value='contact')
-					.form-group(class=validationErrors.name ? 'has-error' : null)
+					.input-field(class=validationErrors.name ? 'has-error' : null)
+						i.material-icons.prefix account_circle
 						label Name
 						input(type='text', name='name.full', value=formData['name.full']).form-control
-					.form-group(class=validationErrors.email ? 'has-error' : null)
+					.input-field(class=validationErrors.email ? 'has-error' : null)
+						i.material-icons.prefix mail
 						label Email
 						input(type='email', name='email', value=formData.email).form-control
-					.form-group
+					.input-field
+						i.material-icons.prefix phone
 						label Phone
 						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
 					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
