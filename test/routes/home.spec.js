@@ -13,7 +13,7 @@ describe('Home route', () => {
 			.get(route)
 			.expect(200)
 			.end((err, res) => {
-				if (err) return done(err);
+				if (err) return done.fail(err);
 				
 				expect(err).toBeNull();
 				expect(res.body).not.toBeNull();
