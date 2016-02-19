@@ -1,7 +1,7 @@
 include ../mixins/flash-messages
 
 doctype html
-html
+html(lang="#{language}")
 
 	//- HTML HEADER
 	head
@@ -65,6 +65,15 @@ html
 							each link in navLinks
 								li(class=(section == link.key ? 'active' : null)): a.waves-effect.waves-light(href=link.href)= link.label
 						ul.nav.navbar-nav.navbar-right
+							li.dropdown
+								a.dropdown-toggle.waves-effect.waves-light(data-toggle="dropdown", role="button") Language
+									span.caret
+								ul.dropdown-menu(role="menu")
+									li
+										a(href="?lang=en") English
+										a(href="?lang=es") Español
+										
+									
 							if user
 								if user.canAccessKeystone
 									li: a.waves-effect.waves-light(href='/keystone') Open Keystone
