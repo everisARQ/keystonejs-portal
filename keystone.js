@@ -2,8 +2,9 @@
 // customising the .env file in your project's root folder.
 require('dotenv').load();
 
-// Require keystone
-var keystone = require('keystone');
+var keystone    = require('keystone'),
+	i18n        = require('i18n'),
+	path        = require('path');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -44,8 +45,38 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
-// Load your project's Routes
+// global i18n configuration
+var i18nConfig = {
+	supportedLocales: ['en', 'es'],
+	defaultLocale: 'en',
+	queryName: 'lang',
+	cookie: {
+		name: 'language',
+		options: { maxAge: 24 * 3600 * 1000},
+		changeLocaleUrl: '/languages/{language}' 
+	}
+};
 
+// i18n configuration
+i18n.configure({
+	locales         : i18nConfig.supportedLocales,
+	defaultLocale   : i18nConfig.defaultLocale,
+	cookie          : i18nConfig.cookie.name,
+	directory       : path.join(__dirname, 'locales'),
+	objectNotation  : true,
+	updateFiles     : false
+});
+
+// keystone language options
+keystone.set('language options', {
+	'supported languages'       : i18nConfig.supportedLocales,
+	'language query name'       : i18nConfig.queryName,
+	'language cookie'           : i18nConfig.cookie.name,
+	'language cookie options'   : i18nConfig.cookie.options,
+	'language select url'       : i18nConfig.cookie.changeLocaleUrl
+});
+
+// Load your project's Routes
 keystone.set('routes', require('./routes'));
 
 
