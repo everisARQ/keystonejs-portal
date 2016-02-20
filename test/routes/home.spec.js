@@ -24,9 +24,6 @@ describe('Home route', () => {
 		
 	});
 	
-	afterAll(() => {
-		keystone.httpServer.close();
-		keystone.mongoose.connection.close();
-	});
+	afterAll(keystone.closeConnections);
 	
 });
