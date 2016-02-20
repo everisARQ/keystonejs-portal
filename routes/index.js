@@ -18,9 +18,15 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-var keystone = require('keystone');
-var middleware = require('./middleware');
+var keystone    = require('keystone'),
+	i18n        = require('i18n'),
+	middleware  = require('./middleware');
+
 var importRoutes = keystone.importer(__dirname);
+
+// Add i18n API implementation
+keystone.pre('routes', i18n.init);
+keystone.set('i18n', i18n);
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
