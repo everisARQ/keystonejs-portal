@@ -15,13 +15,17 @@ To run view _gulp help_
 # Tools and Other things
 
 ## Docker
-For now, there is no container with the keystonejs-portal. For this reason, to use keystonejs-porta in a docker 
+For now, there is no container with the keystonejs-portal. For this reason, to use keystonejs-portal in a docker 
 container you should do the following steps:
-1. Creates a keystonejs-portal image 
+
+1. Creates a keystonejs-portal image:
+
 	``docker build -t keystonejs-portal keystonejs-portal/``
-2. Creates a mongodb container
+2. Creates a mongodb container:
+
 	``docker run -d --name mongodb mongo``
-3. Creates a container linked with mongodb
+3. Creates a container linked with mongodb:
+
 	``docker run -d --link mongodb:db -p 3000:3000 --name keystonejs-portal keystonejs-portal``
 
 ## Git
