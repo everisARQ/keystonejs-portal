@@ -18,7 +18,7 @@ checks = {
 			console.error('\x1B[31mERROR: Unsupported version of Node');
 			console.error('\x1B[31mkeystonejs-portal needs Node version ' + packages.engines.node +
 				' you are using version ' + process.versions.node + '\033[0m\n');
-			console.error('\x1B[32mPlease use some of this versions: ~4.2.0 || ~4.3.0\033[0m');
+			console.error('\x1B[32mPlease use some of this versions: ' + packages.engines.node + '\033[0m');
 
 			process.exit(exitCodes.NODE_VERSION_UNSUPPORTED);
 		}
