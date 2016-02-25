@@ -14,3 +14,5 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+notifications: 
+  slack: evr-arch-europe:1UCLAzIauC94wHuy2W2VLD1F
