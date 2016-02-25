@@ -112,10 +112,10 @@
 
 
     p {
-      margin: 		0;
+      margin: 		10px;
       color: 		inherit;
-	  line-height: 	1.8em; // height line
-	  max-height: 	9em; // heigh description = line-height * number of lines 
+	  line-height: 	1.8em !important; // height line
+	  max-height: 	9em !important; // heigh description = line-height * number of lines .
     }
     .card-title {
       line-height: 48px;
