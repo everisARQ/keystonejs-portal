@@ -53,11 +53,12 @@ gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in j
 
 gulp.task('test', 'Run all project tests', ['test:routes']);
 
-gulp.task('test:routes', 'Runs routes tests', function () {
+gulp.task('test:routes', 'Runs routes tests', function (done) {
 	return gulp.src(paths.test.routes)
 		.pipe(jasmine({
 			timeout: 15000
-		}));
+		}))
+		.pipe(done());
 });
 
 
