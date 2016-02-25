@@ -3,6 +3,7 @@
 var keystone = require('../../../keystone.js');
 
 const port = process.env.TEST_PORT || 5150;
+keystone.set('auto update', false);
 keystone.set('port', port);
 
 /**
