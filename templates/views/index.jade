@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
+	//.container: .jumbotron
 		img(src='/images/logo.svg', width='160')
 		h1 #{__('home.welcome')}
 		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
@@ -38,6 +38,6 @@ block content
 								p= comms.description
 							.card-action
 								a(href= comms.link)
-									button.btn.btn-info.waves-effect.waves-light(type='button') Read more
+									button.btn.btn-info.waves-effect.waves-light(type='button') Unirse
 			else
 				h2.text-muted There are no communities yet.
