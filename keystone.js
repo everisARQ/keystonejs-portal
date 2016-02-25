@@ -1,10 +1,11 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').load();
-
-var keystone    = require('keystone'),
-	i18n        = require('i18n'),
-	path        = require('path');
+var keystone    		= require('keystone'),
+	i18n        		= require('i18n'),
+	fs 					= require('fs'),
+	FileStreamRotator 	= require('file-stream-rotator'),
+	path        		= require('path');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -79,6 +80,22 @@ keystone.set('language options', {
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 
+// Log
+keystone.set('logger', 'common');
+
+var logDirectory = __dirname + '/log'
+// ensure log directory exists
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
+
+// create a rotating write stream
+var accessLogStream = FileStreamRotator.getStream({
+	date_format: 'YYYYMMDD',
+	filename: logDirectory + '/access-%DATE%.log',
+	frequency: 'daily',
+	verbose: false
+});
+
+keystone.set('logger options', {stream: accessLogStream});
 
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.

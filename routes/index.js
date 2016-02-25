@@ -24,6 +24,8 @@ var keystone    = require('keystone'),
 
 var importRoutes = keystone.importer(__dirname);
 
+var logger = keystone.logger;
+
 // Add i18n API implementation
 keystone.pre('routes', i18n.init);
 keystone.set('i18n', i18n);
@@ -41,6 +43,7 @@ var routes = {
 exports = module.exports = function(app) {
 	
 	// Views
+	logger.debug('Creates principal routes.');
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
