@@ -51,14 +51,17 @@ gulp.task('start', 'Run keystonejs-portal.', shell.task('node keystone.js'));
 
 gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
 
-gulp.task('test', 'Run all project tests', ['test:routes']);
+gulp.task('test', 'Run all project tests', function (done) {
+	runSequence('test:routes', function () {
+		setTimeout(done, 5000);
+	});
+});
 
 gulp.task('test:routes', 'Runs routes tests', function (done) {
 	return gulp.src(paths.test.routes)
 		.pipe(jasmine({
 			timeout: 15000
-		}))
-		.pipe(done());
+		}));
 });
 
 
