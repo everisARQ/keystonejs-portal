@@ -10,7 +10,7 @@
 ## RUN
 To run view _gulp help_
 
-**RECOMENDATION**: use node ~4.2.0 || ~4.3.0 version.
+**RECOMENDATION**: use node ^4.2.0 version.
 
 # Tools and Other things
 
