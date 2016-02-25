@@ -1,3 +1,7 @@
 language: node_js
-node_js: 
+node_js:  
   - "4.3"
+before_script:
+  - mv .env_test .env
+services: 
+  - "mongodb"
