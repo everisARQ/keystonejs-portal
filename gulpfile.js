@@ -7,6 +7,7 @@ var shell = require('gulp-shell');
 var open = require('gulp-open');
 var sass = require('gulp-sass');
 var jasmine = require('gulp-jasmine');
+var util = require('gulp-util');
 var runSequence = require('run-sequence');
 
 var paths = {
@@ -52,8 +53,16 @@ gulp.task('start', 'Run keystonejs-portal.', shell.task('node keystone.js'));
 gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
 
 gulp.task('test', 'Run all project tests', function (done) {
-	runSequence('test:routes', function () {
-		setTimeout(done, 5000);
+	runSequence(['test:routes'], function (err) {
+		if (err) {
+			var exitCode = 2;
+			util.log(util.colors.red('[ERROR]'), 'gulp test task failed:', util.colors.red(err));
+			util.log(util.colors.red('[FAIL]'), 'gulp test task failed - exiting with code', util.colors.red(exitCode));
+			return process.exit(exitCode);
+		} else {
+			util.log(util.colors.green('[OK]'), 'gulp test task finished without errors');
+			return done();
+		}
 	});
 });
 
