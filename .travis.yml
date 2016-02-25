@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "4.2.x"
-  - "4.3.x"
+  - "4.2"
+  - "4.3"
 before_script:
   - mv .env_test .env
 services: 
