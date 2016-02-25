@@ -6,3 +6,11 @@ before_script:
   - mv .env_test .env
 services: 
   - "mongodb"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
