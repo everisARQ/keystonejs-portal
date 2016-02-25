@@ -11,6 +11,9 @@ keystone.set('port', port);
 keystone.closeConnections = () => {
 	keystone.httpServer.close();
 	keystone.mongoose.connection.close();
+	keystone.app.close((err) => {
+		return (err) ? false : true;
+	});
 };
 
 module.exports = keystone;
