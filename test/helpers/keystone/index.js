@@ -3,6 +3,7 @@
 var keystone = require('../../../keystone.js');
 
 const port = process.env.TEST_PORT || 5150;
+keystone.set('auto update', false);
 keystone.set('port', port);
 
 /**
@@ -11,6 +12,9 @@ keystone.set('port', port);
 keystone.closeConnections = () => {
 	keystone.httpServer.close();
 	keystone.mongoose.connection.close();
+	keystone.app.close((err) => {
+		return (err) ? false : true;
+	});
 };
 
 module.exports = keystone;
