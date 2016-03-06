@@ -36,7 +36,7 @@
     "npm": "^2.14.0"
   },
   "scripts": {
-    "preinstall": "npm install semver && node -e \"require('./utils/startup-check.js').nodeVersion()\"",
+    "preinstall": "npm install semver && node -e \"require('./node_modules/keystone/lib/archjs/utils/startup-check.js').nodeVersion(require('path').resolve('./package.json'))\"",
     "start": "node keystone.js",
     "start-dev": "nodemon --watch ./routes --watch ./models keystone.js",
     "test": "gulp test"

@@ -27,7 +27,10 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+	// File LOGGER
+	'fileLogger': { dato1: '1', dato2: '2' }
 
 });
 
@@ -80,7 +83,7 @@ keystone.set('language options', {
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 
-// Log
+// HTTP LOGGER
 keystone.set('logger', 'common');
 
 var logDirectory = __dirname + '/log'
