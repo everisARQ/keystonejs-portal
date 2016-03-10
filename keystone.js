@@ -29,9 +29,6 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
-	// File LOGGER
-	'fileLogger': { dato1: '1', dato2: '2' }
-
 });
 
 // Load your project's Models
@@ -145,8 +142,11 @@ keystone.set('nav', {
 	'users': 'users'
 });
 
-// Start Keystone to connect to your database and initialise the web server
+keystone.set('Logger options', {
+	mode: 'info'
+});
 
+// Start Keystone to connect to your database and initialise the web server
 keystone.start();
 
 module.exports = keystone;

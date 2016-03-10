@@ -24,7 +24,7 @@ var keystone    = require('keystone'),
 
 var importRoutes = keystone.importer(__dirname);
 
-var logger = keystone.logger;
+var logger = keystone.Logger;
 
 // Add i18n API implementation
 keystone.pre('routes', i18n.init);
