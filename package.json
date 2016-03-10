@@ -8,7 +8,7 @@
     "dotenv": "^1.1.0",
     "file-stream-rotator": "0.0.6",
     "i18n": "^0.7.0",
-    "keystone": "file:../keystone",
+    "keystone": "https://github.com/everisARQ/keystone.git",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
     "semver": "^5.1.0",
@@ -38,7 +38,7 @@
     "npm": "^2.14.0"
   },
   "scripts": {
-    "preinstall": "npm install --dev && gulp checkNodeVersion",
+    "preinstall": "npm install gulp gulp-help gulp-jshint jshint-stylish gulp-watch gulp-shell gulp-open gulp-sass gulp-jasmine gulp-util run-sequence gulp-if-else && gulp checkNodeVersion",
     "start": "node keystone.js",
     "start-dev": "nodemon --watch ./routes --watch ./models keystone.js",
     "test": "gulp test"
