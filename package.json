@@ -17,6 +17,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-help": "^1.6.1",
+    "gulp-if-else": "^1.0.3",
     "gulp-jasmine": "^2.2.1",
     "gulp-jshint": "^2.0.0",
     "gulp-open": "^1.0.0",
@@ -33,11 +34,11 @@
     "supertest": "^1.2.0"
   },
   "engines": {
-    "node": "^4.3.0",
+    "node": "^4.2.0",
     "npm": "^2.14.0"
   },
   "scripts": {
-    "preinstall": "./preinstall.sh",
+    "preinstall": "gulp checkNodeVersion",
     "start": "node keystone.js",
     "start-dev": "nodemon --watch ./routes --watch ./models keystone.js",
     "test": "gulp test"

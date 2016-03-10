@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var jasmine = require('gulp-jasmine');
 var util = require('gulp-util');
 var runSequence = require('run-sequence');
+var ifElse = require('gulp-if-else');
 
 var paths = {
 	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
@@ -50,7 +51,8 @@ gulp.task('sass', 'Compile sass.', function(){
 
 gulp.task('start', 'Run keystonejs-portal.', shell.task('node keystone.js'));
 
-gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
+gulp.task('start-dev', 'Run keystonejs-portal with nodemon watching changes in js files.', 
+	shell.task('nodemon --watch ./routes --watch ./models keystone.js'));
 
 gulp.task('test', 'Run all project tests', function (done) {
 	runSequence(['test:routes'], function (err) {
@@ -85,5 +87,26 @@ gulp.task('watch', [
 
   'watch:lint'
 ]);
+
+gulp.task('keystoneModuleExists', '',
+	shell.task('echo "pre-install validations run" && npm install semver && node -e \"require(\'./node_modules/keystone/lib/archjs/utils/startup-check.js\').nodeVersion(require(\'path\').resolve(\'./package.json\'))\"'));
+
+gulp.task('keystoneModuleDoesntExists', '',
+	shell.task('echo "First install. Doesn\'t execute validations"'));
+
+gulp.task('checkNodeVersion', 'Cheks if the node version is correct before install.', function () {
+	
+	ifElse(require('fs').existsSync('./node_modules/keystone'),
+
+		function() {
+			gulp.start('keystoneModuleExists');
+		},
+
+		function () {
+			gulp.start('keystoneModuleDoesntExists');
+		}
+	);
+	
+});
 
 gulp.task('default', ['watch', 'start']);
