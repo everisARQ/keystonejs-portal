@@ -143,7 +143,12 @@ keystone.set('nav', {
 });
 
 keystone.set('Logger options', {
-	mode: 'info'
+	level: 'info'/*,
+	formatter: '',
+	timestamp: '',
+	logstash: '',
+	json: ''*/
+	
 });
 
 // Start Keystone to connect to your database and initialise the web server
