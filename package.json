@@ -38,7 +38,7 @@
     "npm": "^2.14.0"
   },
   "scripts": {
-    "preinstall": "gulp checkNodeVersion",
+    "preinstall": "npm install gulp && gulp checkNodeVersion",
     "start": "node keystone.js",
     "start-dev": "nodemon --watch ./routes --watch ./models keystone.js",
     "test": "gulp test"
