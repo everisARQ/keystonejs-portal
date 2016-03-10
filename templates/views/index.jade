@@ -37,7 +37,7 @@ block content
 							.card-content
 								p= comms.description
 							.card-action
-								a(href= comms.link)
+								a(href= comms.link+"/"+comms.key)=comms.key
 									button.btn.btn-info.waves-effect.waves-light(type='button') Unirse
 			else
 				h2.text-muted There are no communities yet.
