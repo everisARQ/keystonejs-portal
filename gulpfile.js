@@ -88,10 +88,10 @@ gulp.task('watch', [
   'watch:lint'
 ]);
 
-gulp.task('keystoneModuleExists', '',
+gulp.task('keystoneModuleExists', 'Checks if keystone node_module exists and verify node version.',
 	shell.task('echo "pre-install validations run" && npm install semver && node -e \"require(\'./node_modules/keystone/lib/archjs/utils/startup-check.js\').nodeVersion(require(\'path\').resolve(\'./package.json\'))\"'));
 
-gulp.task('keystoneModuleDoesntExists', '',
+gulp.task('keystoneModuleDoesntExists', 'Checks if keystone node_module doesn\'t exists.',
 	shell.task('echo "First install. Doesn\'t execute validations"'));
 
 gulp.task('checkNodeVersion', 'Cheks if the node version is correct before install.', function () {
