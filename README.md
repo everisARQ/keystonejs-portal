@@ -1,5 +1,7 @@
 # keystonejs-portal
 
+[![Build Status](https://travis-ci.org/everisARQ/keystonejs-portal.svg?branch=master)](https://travis-ci.org/everisARQ/keystonejs-portal)
+
 ## PRE-REQUISITES
 - mongodb
 
