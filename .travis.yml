@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "4.2"
+  - "4.3"
+before_script:
+  - mv .env_test .env
+services: 
+  - "mongodb"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+notifications: 
+  slack: evr-arch-europe:1UCLAzIauC94wHuy2W2VLD1F
